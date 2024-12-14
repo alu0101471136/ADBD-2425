@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Consultas</h1>
+	<body>
+		<nav>
+			<a href="{{ url_for('temperatures') }}">Por Temperatura</a>
+			<a href="{{ url_for('rooms') }}">Por Habitaciones</a>
+		</nav>
+	</body>
+{% endblock %}

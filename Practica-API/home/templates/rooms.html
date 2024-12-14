@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form action="/consultas/habitaciones/" method="POST">
+		<label for="room_id">Room ID:</label>
+		<input type="text" id="room_id" name="room_id">
+		<button type="submit">Consultar</button>
+	</form>
+
+
+{% endblock %}

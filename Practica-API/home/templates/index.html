@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<h2> Temperaturas </h2>
+    {% for temperature in temperatures %}
+        <div class='temperatures'>
+            <h3>#{{ temperature[0] }} - Habitación: #{{ temperature[1] }}</h3>
+						<i><p>Temperatura {{ temperature[2] }}</p></i>
+						<i><p>Fecha {{ temperature[3] }}</p></i>
+        </div>
+    {% endfor %}
+{% endblock %}
