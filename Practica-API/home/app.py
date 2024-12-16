@@ -1,6 +1,6 @@
 import os
 import psycopg2
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 
 app = Flask(__name__)
 
@@ -78,6 +78,7 @@ def room_queries():
             name = room_name(room_id)
             average = room_average_temperature(room_id)
             min_temp = room_min_temperature(room_id)
+            jsonify(min_temp)
         except Exception as e:
             print(f"Error al seleccionar las habitaciones: {str(e)}")
             return "Error al obtener los datos de las habitaciones", 500
@@ -127,7 +128,11 @@ def room_min_temperature(room_id):
             WHERE t.room_id = %s
             GROUP BY r.name;
         """, (room_id,))
-        min_temp = cur.fetchone()
+        row = cur.fetchone()
+        min_temp = {
+            'temperature': row[0],
+            'room_name': row[1]
+        }
     except Exception as e:
         print(f"Error al obtener la temperatura mínima de la habitación: {str(e)}")
     finally:
