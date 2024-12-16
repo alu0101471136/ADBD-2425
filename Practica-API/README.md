@@ -3,7 +3,8 @@
 ## Configuraciones necesarias
 
 Es necesario establecer el entorno de la API REST en Flask:
-	cd /ADBD-2425/Practica-API
+	
+ 	cd /ADBD-2425/Practica-API
 	python3 -m venv ./APIrest
 	source ./APIrest/bin/activate
 
